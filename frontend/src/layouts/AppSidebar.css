@@ -169,18 +169,18 @@
   z-index: 9999;
   background: linear-gradient(135deg, #7c3aed 0%, #06ffa5 100%);
   color: #fff;
-  border: 1px solid rgba(255,255,255,0.14);
-  width: 42px;
-  height: 42px;
+  border: 1px solid rgba(255,255,255,0.18);
+  width: 44px;
+  height: 44px;
   border-radius: 12px;
   cursor: pointer;
   display: none;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
-  box-shadow: 0 6px 20px rgba(139,92,246,0.35), 0 0 0 1px rgba(139,92,246,0.18);
+  font-size: 19px;
+  box-shadow: 0 8px 24px rgba(139,92,246,0.4), 0 0 0 1px rgba(139,92,246,0.2);
 }
-.drawer-handle:hover { transform: scale(1.06); box-shadow: 0 8px 28px rgba(139,92,246,0.45); }
+.drawer-handle:hover { transform: scale(1.06); box-shadow: 0 10px 30px rgba(139,92,246,0.5); }
 .drawer-handle:active { transform: scale(0.97); }
 
 .drawer-header {
@@ -315,7 +315,7 @@
   padding: 8px 8px 12px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .drawer-handle {
     display: inline-flex !important;
   }
@@ -378,3 +378,10 @@ body.dark .ant-drawer-body .drawer-menu .ant-menu-item-group-list {
   .page-shell .page-header { padding-top: 8px; }
 }
 
+
+/* Ensure floating menu button is never clipped */
+.ant-sidebar { overflow: visible !important; }
+/* Keep header area clear so fixed button doesn't overlap content on small screens */
+@media (max-width: 1024px) {
+  .admins-page { padding-top: 12px !important; }
+}
