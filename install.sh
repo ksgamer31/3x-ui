@@ -1509,12 +1509,17 @@ install_x-ui() {
             tag_version="dev-latest"
             echo -e "${yellow}Installing the rolling dev build (tag: dev-latest). This is a per-commit pre-release, not a stable version.${plain}"
         else
-            tag_version_numeric=${tag_version#v}
-            min_version="2.3.5"
-
-            if [[ "$(printf '%s\n' "$min_version" "$tag_version_numeric" | sort -V | head -n1)" != "$min_version" ]]; then
-                echo -e "${red}Please use a newer version (at least v2.3.5). Exiting installation.${plain}"
-                exit 1
+            # KSMRX custom tags (e.g. v1.0.0-ksmrx) should bypass the upstream floor check
+            if [[ "$tag_version" == *ksmrx* ]]; then
+                :
+            else
+                tag_version_numeric=${tag_version#v}
+                tag_version_numeric=${tag_version_numeric%%[-+]*}
+                min_version="2.3.5"
+                if [[ "$(printf '%s\n' "$min_version" "$tag_version_numeric" | sort -V | head -n1)" != "$min_version" ]]; then
+                    echo -e "${red}Please use a newer version (at least v2.3.5). Exiting installation.${plain}"
+                    exit 1
+                fi
             fi
         fi
 
