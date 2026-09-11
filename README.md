@@ -14,17 +14,19 @@
   <sub>Fork of <a href="https://github.com/MHSanaei/3x-ui">MHSanaei/3x-ui</a> · Xray-core 26.x · Go + Vue 3 · SQLite / PostgreSQL</sub>
 </p>
 
+  <a href="https://github.com/ksgamer31/3x-ui/releases"><img src="https://img.shields.io/github/v/release/ksgamer31/3x-ui?label=KSMRX&labelColor=0a0e1a&color=8b5cf6&style=for-the-badge" alt="Release"></a>
+  <a href="https://github.com/ksgamer31/3x-ui/actions"><img src="https://img.shields.io/github/actions/workflow/status/ksgamer31/3x-ui/release.yml?label=build&labelColor=0a0e1a&color=06ffa5&style=for-the-badge" alt="Build"></a>
+  <a href="https://github.com/ksgamer31/3x-ui/releases/latest"><img src="https://img.shields.io/github/downloads/ksgamer31/3x-ui/total?label=downloads&labelColor=0a0e1a&color=22d3ee&style=for-the-badge" alt="Downloads"></a>
+  <a href="https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="https://img.shields.io/badge/license-GPL%20V3-0a0e1a?labelColor=22d3ee&color=8b5cf6&style=for-the-badge" alt="License"></a>
+  <img src="https://img.shields.io/badge/theme-neon%20dark-0a0e1a?labelColor=8b5cf6&color=06ffa5&style=for-the-badge" alt="Theme">
+  <img src="https://img.shields.io/badge/RBAC-multi--admin-0a0e1a?labelColor=06ffa5&color=8b5cf6&style=for-the-badge" alt="RBAC">
+
 <p align="center">
-  <a href="https://github.com/ksgamer31/3x-ui/releases"><img src="https://img.shields.io/github/v/release/ksgamer31/3x-ui?label=KSMRX&color=8b5cf6" alt="Release"></a>
-  <a href="https://github.com/ksgamer31/3x-ui/actions"><img src="https://img.shields.io/github/actions/workflow/status/ksgamer31/3x-ui/release.yml?label=build&color=06ffa5" alt="Build"></a>
-  <a href="https://github.com/ksgamer31/3x-ui/releases/latest"><img src="https://img.shields.io/github/downloads/ksgamer31/3x-ui/total?color=22d3ee" alt="Downloads"></a>
-  <a href="https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="https://img.shields.io/badge/license-GPL%20V3-blue.svg" alt="License"></a>
-  <img src="https://img.shields.io/badge/theme-neon%20dark-0a0e1a?labelColor=8b5cf6" alt="Theme">
-  <img src="https://img.shields.io/badge/RBAC-multi--admin-06ffa5" alt="RBAC">
+  <img src="https://img.shields.io/badge/%20-%20?style=flat&labelColor=0a0e1a&color=8b5cf6" alt=""> <img src="https://img.shields.io/badge/%20-%20?style=flat&labelColor=0a0e1a&color=06ffa5" alt=""> <img src="https://img.shields.io/badge/%20-%20?style=flat&labelColor=0a0e1a&color=22d3ee" alt="">
 </p>
 
 <p align="center">
-  <code>bash &lt;(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.0-ksmrx</code>
+  <code>bash &lt;(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.1-ksmrx</code>
 </p>
 
 ---
@@ -102,10 +104,10 @@
 ### One-line install (recommended)
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.0-ksmrx
+bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.1-ksmrx
 ```
 
-Once `v1.0.0-ksmrx` is `latest` (it is), the short form also works:
+Once `v1.0.1-ksmrx` is `latest` (it is), the short form also works:
 
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh)
@@ -115,7 +117,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.s
 
 ```bash
 # a specific tag
-bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.0-ksmrx
+bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.1-ksmrx
 
 # rolling dev (latest commit on main, not stable)
 bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) dev-latest
@@ -135,7 +137,7 @@ Result is saved to `/etc/x-ui/install-result.env` (mode 600).
 ### Unattended (cloud-init)
 
 ```bash
-XUI_NONINTERACTIVE=1 bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.0-ksmrx
+XUI_NONINTERACTIVE=1 bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.1-ksmrx
 cat /etc/x-ui/install-result.env
 ```
 
