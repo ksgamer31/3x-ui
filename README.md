@@ -26,7 +26,7 @@
 </p>
 
 <p align="center">
-  <code>bash &lt;(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.5-ksmrx</code>
+  <code>bash &lt;(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.6-ksmrx</code>
 </p>
 
 ---
@@ -104,10 +104,10 @@
 ### One-line install (recommended)
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.5-ksmrx
+bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.6-ksmrx
 ```
 
-Once `v1.0.5-ksmrx` is `latest` (it is), the short form also works:
+Once `v1.0.6-ksmrx` is `latest` (it is), the short form also works:
 
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh)
@@ -117,7 +117,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.s
 
 ```bash
 # a specific tag
-bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.5-ksmrx
+bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.6-ksmrx
 
 # rolling dev (latest commit on main, not stable)
 bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) dev-latest
@@ -137,7 +137,7 @@ Result is saved to `/etc/x-ui/install-result.env` (mode 600).
 ### Unattended (cloud-init)
 
 ```bash
-XUI_NONINTERACTIVE=1 bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.5-ksmrx
+XUI_NONINTERACTIVE=1 bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.6-ksmrx
 cat /etc/x-ui/install-result.env
 ```
 

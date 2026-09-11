@@ -120,7 +120,7 @@ function DocsButton({ ariaLabel }: { ariaLabel: string }) {
 
 function VersionBadge({ version, collapsed }: { version: string; collapsed?: boolean }) {
   if (!version) return null;
-  const label = formatPanelVersion(version);
+  const label = `KSMRX ${formatPanelVersion(version)}`;
   return (
     <a
       href={REPO_URL}
