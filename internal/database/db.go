@@ -105,6 +105,9 @@ func migrateOutboundSubscriptionUserAgentColumn() error {
 }
 
 func initModels() error {
+	if err := migrateUserRBACColumns(); err != nil {
+		return err
+	}
 	if err := migrateClientTrafficLastSubFetchColumn(); err != nil {
 		return err
 	}
@@ -1221,12 +1224,37 @@ func initUser() error {
 			log.Printf("Error hashing default password: %v", err)
 			return err
 		}
-
 		user := &model.User{
-			Username: defaultUsername,
-			Password: hashedPassword,
+			Username:    defaultUsername,
+			Password:    hashedPassword,
+			Role:        model.RoleOwner,
+			Enabled:     true,
+			DisplayName: "Owner",
 		}
 		return db.Create(user).Error
+	}
+	// backfill legacy single-admin rows: empty role => owner, enabled false => true
+	_ = db.Exec("UPDATE users SET role = ? WHERE role IS NULL OR role = ''", model.RoleOwner).Error
+	_ = db.Exec("UPDATE users SET enabled = 1 WHERE role = ? AND (enabled IS NULL OR enabled = 0) AND id IN (SELECT id FROM users WHERE role = ?)", model.RoleOwner, model.RoleOwner).Error
+	// ensure at least one owner remains owner
+	return nil
+}
+
+func migrateUserRBACColumns() error {
+	m := db.Migrator()
+	if m.HasTable(&model.User{}) {
+		if !m.HasColumn(&model.User{}, "role") {
+			_ = m.AddColumn(&model.User{}, "Role")
+		}
+		if !m.HasColumn(&model.User{}, "enabled") {
+			_ = m.AddColumn(&model.User{}, "Enabled")
+		}
+		if !m.HasColumn(&model.User{}, "display_name") {
+			_ = m.AddColumn(&model.User{}, "DisplayName")
+		}
+		if !m.HasColumn(&model.User{}, "inbound_ids") {
+			_ = m.AddColumn(&model.User{}, "InboundIds")
+		}
 	}
 	return nil
 }

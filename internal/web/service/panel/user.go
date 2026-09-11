@@ -50,6 +50,9 @@ func (s *UserService) CheckUser(username string, password string, twoFactorCode 
 		logger.Warning("check user err:", err)
 		return nil, err
 	}
+	if !user.Enabled && user.Role != "" {
+		return nil, errors.New("account disabled")
+	}
 
 	if !crypto.CheckPasswordHash(user.Password, password) {
 		ldapEnabled, _ := s.settingService.GetLdapEnable()
@@ -147,17 +150,19 @@ func (s *UserService) UpdateFirstUser(username string, password string) error {
 		return errors.New("password can not be empty")
 	}
 	hashedPassword, er := crypto.HashPasswordAsBcrypt(password)
-
 	if er != nil {
 		return er
 	}
-
 	db := database.GetDB()
 	user := &model.User{}
 	err := db.Model(model.User{}).First(user).Error
 	if database.IsNotFound(err) {
 		user.Username = username
 		user.Password = hashedPassword
+		if user.Role == "" {
+			user.Role = model.RoleOwner
+		}
+		user.Enabled = true
 		return db.Model(model.User{}).Create(user).Error
 	} else if err != nil {
 		return err
@@ -167,3 +172,100 @@ func (s *UserService) UpdateFirstUser(username string, password string) error {
 	user.LoginEpoch++
 	return db.Save(user).Error
 }
+
+// --- KSMRX multi-admin RBAC ---
+
+func (s *UserService) ListUsers() ([]model.User, error) {
+	db := database.GetDB()
+	var users []model.User
+	if err := db.Order("id asc").Find(&users).Error; err != nil {
+		return nil, err
+	}
+	return users, nil
+}
+
+func (s *UserService) GetUserByID(id int) (*model.User, error) {
+	db := database.GetDB()
+	u := &model.User{}
+	if err := db.First(u, id).Error; err != nil {
+		return nil, err
+	}
+	return u, nil
+}
+
+func (s *UserService) CreateUser(username, password, role, displayName, inboundIds string) (*model.User, error) {
+	if username == "" || password == "" {
+		return nil, errors.New("username and password required")
+	}
+	if role == "" {
+		role = model.RoleViewer
+	}
+	if !model.IsValidRole(role) {
+		return nil, errors.New("invalid role")
+	}
+	hashed, err := crypto.HashPasswordAsBcrypt(password)
+	if err != nil {
+		return nil, err
+	}
+	db := database.GetDB()
+	u := &model.User{Username: username, Password: hashed, Role: role, Enabled: true, DisplayName: displayName, InboundIds: inboundIds}
+	if err := db.Create(u).Error; err != nil {
+		return nil, err
+	}
+	return u, nil
+}
+
+func (s *UserService) DeleteUser(id int) error {
+	db := database.GetDB()
+	// prevent deleting the last owner
+	var ownerCount int64
+	db.Model(&model.User{}).Where("role = ?", model.RoleOwner).Count(&ownerCount)
+	u, err := s.GetUserByID(id)
+	if err != nil {
+		return err
+	}
+	if u.Role == model.RoleOwner && ownerCount <= 1 {
+		return errors.New("cannot delete the last owner")
+	}
+	return db.Delete(&model.User{}, id).Error
+}
+
+func (s *UserService) UpdateUserRole(id int, role string, enabled *bool, displayName *string, inboundIds *string) error {
+	if role != "" && !model.IsValidRole(role) {
+		return errors.New("invalid role")
+	}
+	db := database.GetDB()
+	updates := map[string]any{}
+	if role != "" {
+		updates["role"] = role
+	}
+	if enabled != nil {
+		updates["enabled"] = *enabled
+		if !*enabled {
+			updates["login_epoch"] = gorm.Expr("login_epoch + 1")
+		}
+	}
+	if displayName != nil {
+		updates["display_name"] = *displayName
+	}
+	if inboundIds != nil {
+		updates["inbound_ids"] = *inboundIds
+	}
+	if len(updates) == 0 {
+		return nil
+	}
+	return db.Model(&model.User{}).Where("id = ?", id).Updates(updates).Error
+}
+
+func (s *UserService) UpdateUserPassword(id int, newPassword string) error {
+	if newPassword == "" {
+		return errors.New("password can not be empty")
+	}
+	hashed, err := crypto.HashPasswordAsBcrypt(newPassword)
+	if err != nil {
+		return err
+	}
+	db := database.GetDB()
+	return db.Model(&model.User{}).Where("id = ?", id).Updates(map[string]any{"password": hashed, "login_epoch": gorm.Expr("login_epoch + 1")}).Error
+}
+

@@ -1,0 +1,83 @@
+/* KSMRX Neon Theme — dark neon glow */
+body.dark {
+  --neon-primary: #8b5cf6;
+  --neon-accent: #06ffa5;
+  --neon-glow: 0 0 20px rgba(139, 92, 246, 0.4), 0 0 40px rgba(139, 92, 246, 0.15);
+  --neon-glow-accent: 0 0 20px rgba(6, 255, 165, 0.3), 0 0 40px rgba(6, 255, 165, 0.1);
+  background: radial-gradient(ellipse at top, rgba(139,92,246,0.08) 0%, transparent 60%), #0a0e1a !important;
+}
+
+/* Brand gradient text */
+.brand-text, .brand-name, .drawer-brand {
+  background: linear-gradient(135deg, #8b5cf6 0%, #06ffa5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  filter: drop-shadow(0 0 8px rgba(139,92,246,0.5));
+}
+
+/* Cards neon border + glow */
+body.dark .ant-card {
+  border: 1px solid rgba(139, 92, 246, 0.12) !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.4), 0 0 0 1px rgba(139,92,246,0.06), inset 0 1px 0 rgba(255,255,255,0.04) !important;
+  backdrop-filter: blur(8px);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+body.dark .ant-card:hover {
+  border-color: rgba(139,92,246,0.25) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 24px rgba(139,92,246,0.15), inset 0 1px 0 rgba(255,255,255,0.06) !important;
+}
+
+/* Primary buttons neon */
+body.dark .ant-btn-primary {
+  background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 100%) !important;
+  border: none !important;
+  box-shadow: 0 4px 16px rgba(139,92,246,0.35), 0 0 0 1px rgba(139,92,246,0.2) !important;
+}
+body.dark .ant-btn-primary:hover {
+  background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%) !important;
+  box-shadow: 0 6px 24px rgba(139,92,246,0.5), 0 0 16px rgba(139,92,246,0.3) !important;
+  transform: translateY(-1px);
+}
+
+/* Sidebar neon accent */
+body.dark .ant-layout-sider {
+  border-right: 1px solid rgba(139,92,246,0.08) !important;
+  box-shadow: 4px 0 24px rgba(0,0,0,0.3) !important;
+}
+body.dark .ant-menu-item-selected {
+  background: linear-gradient(90deg, rgba(139,92,246,0.15) 0%, rgba(6,255,165,0.08) 100%) !important;
+  border-left: 2px solid #8b5cf6;
+}
+
+/* Stats numbers glow */
+body.dark .ant-statistic-content-value {
+  text-shadow: 0 0 12px rgba(139,92,246,0.3);
+}
+
+/* Login page neon */
+.login-page, body.dark .login-page {
+  background: radial-gradient(ellipse at 30% 20%, rgba(139,92,246,0.15) 0%, transparent 50%),
+              radial-gradient(ellipse at 80% 80%, rgba(6,255,165,0.08) 0%, transparent 50%),
+              #0a0e1a !important;
+}
+
+/* Scrollbar neon */
+body.dark ::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #8b5cf6, #06ffa5);
+  border-radius: 8px;
+}
+
+/* Tag / online dot neon */
+body.dark .online-dot {
+  box-shadow: 0 0 8px rgba(6,255,165,0.6) !important;
+}
+
+/* Animations */
+@keyframes neon-pulse {
+  0%,100% { box-shadow: 0 0 12px rgba(139,92,246,0.3); }
+  50% { box-shadow: 0 0 24px rgba(139,92,246,0.5); }
+}
+.neon-pulse { animation: neon-pulse 2s ease-in-out infinite; }

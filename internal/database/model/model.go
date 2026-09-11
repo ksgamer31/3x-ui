@@ -35,12 +35,47 @@ const (
 	AmneziaWG   Protocol = "amneziawg"
 )
 
-// User represents a user account in the 3x-ui panel.
+// User represents a user account in the 3x-ui panel (KSMRX fork: multi-admin + RBAC).
 type User struct {
-	Id         int    `json:"id" gorm:"primaryKey;autoIncrement"`
-	Username   string `json:"username"`
-	Password   string `json:"password"`
-	LoginEpoch int64  `json:"-" gorm:"default:0"`
+	Id          int    `json:"id" gorm:"primaryKey;autoIncrement"`
+	Username    string `json:"username" gorm:"uniqueIndex"`
+	Password    string `json:"password"`
+	LoginEpoch  int64  `json:"-" gorm:"default:0"`
+	Role        string `json:"role" gorm:"default:owner"`
+	Enabled     bool   `json:"enabled" gorm:"default:true"`
+	DisplayName string `json:"displayName" gorm:"default:''"`
+	InboundIds  string `json:"inboundIds" gorm:"default:''"` // JSON array string, empty = all
+}
+
+const (
+	RoleOwner   = "owner"
+	RoleAdmin   = "admin"
+	RoleEditor  = "editor"
+	RoleCreator = "creator"
+	RoleViewer  = "viewer"
+)
+
+var validRoles = map[string]bool{
+	RoleOwner: true, RoleAdmin: true, RoleEditor: true, RoleCreator: true, RoleViewer: true,
+}
+
+func IsValidRole(r string) bool { return validRoles[r] }
+
+// RolePermissions maps role -> allowed permission keys
+var RolePermissions = map[string]map[string]bool{
+	RoleOwner:   {"*": true},
+	RoleAdmin:   {"view": true, "client:create": true, "client:edit": true, "client:delete": true, "inbound:create": true, "inbound:edit": true, "inbound:delete": true, "settings:view": true, "settings:edit": true, "nodes:manage": true, "hosts:manage": true},
+	RoleEditor:  {"view": true, "client:create": true, "client:edit": true, "client:delete": true, "inbound:create": true, "inbound:edit": true, "inbound:delete": false, "settings:view": false, "settings:edit": false, "nodes:manage": false},
+	RoleCreator: {"view": true, "client:create": true, "client:edit": false, "client:delete": false, "inbound:create": false, "inbound:edit": false},
+	RoleViewer:  {"view": true},
+}
+
+func HasPermission(role, perm string) bool {
+	if role == RoleOwner { return true }
+	m, ok := RolePermissions[role]
+	if !ok { return false }
+	if m["*"] { return true }
+	return m[perm]
 }
 
 // Inbound represents an Xray inbound configuration with traffic statistics and settings.

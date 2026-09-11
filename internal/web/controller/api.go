@@ -153,6 +153,94 @@ func (a *APIController) enforceTokenScope(c *gin.Context) {
 	deny()
 }
 
+
+// enforceRBAC restricts mutating endpoints based on logged-in user's Role.
+// Owner/Admin bypass. Viewer = read-only, Creator = can create but not edit/delete, Editor = can create+edit but not settings/nodes.
+func (a *APIController) enforceRBAC(c *gin.Context) {
+	u := session.GetLoginUser(c)
+	if u == nil {
+		// token-auth paths already handled by enforceTokenScope; skip
+		c.Next()
+		return
+	}
+	if u.Role == model.RoleOwner || u.Role == model.RoleAdmin || u.Role == "" {
+		c.Next()
+		return
+	}
+	rel := relAPIPath(c.FullPath())
+	method := c.Request.Method
+
+	isMutating := method == http.MethodPost || method == http.MethodPut || method == http.MethodDelete || method == http.MethodPatch
+
+	// viewer: block all mutating
+	if u.Role == model.RoleViewer {
+		if isMutating {
+			// allow only read-like POSTs
+			readPOST := map[string]bool{
+				"/setting/all": true,
+				"/setting/defaultSettings": true,
+				"/setting/factoryDefaults": true,
+				"/setting/getDefaultJsonConfig": true,
+				"/inbounds/list": true,
+				"/inbounds/list/slim": true,
+				"/inbounds/options": true,
+				"/inbounds/allLinks": true,
+				"/clients/onlines": true,
+				"/clients/onlinesByGuid": true,
+				"/clients/lastOnline": true,
+				"/clients/clientIpsByGuid": true,
+				"/server/clientIps": true,
+			}
+			if !readPOST[rel] {
+				c.AbortWithStatusJSON(http.StatusForbidden, gin.H{"success": false, "msg": "viewer role: read-only"})
+				return
+			}
+		}
+		c.Next()
+		return
+	}
+	if u.Role == model.RoleCreator {
+		blocked := map[string]bool{
+			"/inbounds/update/:id": true,
+			"/inbounds/del/:id": true,
+			"/inbounds/:id/resetTraffic": true,
+			"/clients/update/:email": true,
+			"/clients/del/:email": true,
+			"/clients/:email/detach": true,
+			"/clients/resetTraffic/:email": true,
+			"/setting/update": true,
+			"/setting/updateUser": true,
+			"/setting/restartPanel": true,
+			"/server/restartXrayService": true,
+			"/xray/update": true,
+		}
+		if blocked[rel] {
+			c.AbortWithStatusJSON(http.StatusForbidden, gin.H{"success": false, "msg": "creator role: cannot edit/delete"})
+			return
+		}
+		c.Next()
+		return
+	}
+	if u.Role == model.RoleEditor {
+		blocked := map[string]bool{
+			"/setting/update": true,
+			"/setting/updateUser": true,
+			"/setting/restartPanel": true,
+			"/setting/apiTokens/create": true,
+			"/setting/apiTokens/delete/:id": true,
+			"/nodes/add": true,
+			"/nodes/del/:id": true,
+		}
+		if blocked[rel] {
+			c.AbortWithStatusJSON(http.StatusForbidden, gin.H{"success": false, "msg": "editor role: insufficient permission"})
+			return
+		}
+		c.Next()
+		return
+	}
+	c.Next()
+}
+
 func relAPIPath(fullPath string) string {
 	const marker = "/panel/api"
 	_, after, ok := strings.Cut(fullPath, marker)
@@ -168,6 +256,7 @@ func (a *APIController) initRouter(g *gin.RouterGroup) {
 	api := g.Group("/panel/api")
 	api.Use(a.checkAPIAuth)
 	api.Use(a.enforceTokenScope)
+	api.Use(a.enforceRBAC)
 	// Decode + verify the node config envelope (zstd + X-Config-Sha256) and
 	// advertise support, before CSRF/handlers read the body.
 	api.Use(middleware.ConfigEnvelopeMiddleware())
@@ -203,6 +292,9 @@ func (a *APIController) initRouter(g *gin.RouterGroup) {
 
 	// Subscription balancers — client-side balancers for the JSON sub output
 	NewSubBalancerController(api)
+
+	// KSMRX: multi-admin management
+	NewUsersController(api)
 
 	// Extra routes
 	api.POST("/backuptotgbot", a.BackuptoTgbot)

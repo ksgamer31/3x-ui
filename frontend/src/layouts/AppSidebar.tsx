@@ -49,7 +49,7 @@ const DONATE_URL = 'https://donate.sanaei.dev/';
 // Mac glyph to the Linux and Windows operators who are most of this panel's.
 const SHORTCUT_MODIFIER = /Mac|iPhone|iPad|iPod/.test(navigator.userAgent) ? '⌘' : 'Ctrl';
 const DOCS_URL = 'https://docs.sanaei.dev/';
-const REPO_URL = 'https://github.com/MHSanaei/3x-ui';
+const REPO_URL = 'https://github.com/ksgamer31/3x-ui';
 const LOGOUT_KEY = '__logout__';
 const RAIL_WIDTH = 72;
 const SIDER_WIDTH = 220;
@@ -68,6 +68,7 @@ type IconName =
   | 'hosts'
   | 'logout'
   | 'apidocs'
+  | 'admins'
   | 'outbound'
   | 'routing';
 
@@ -82,6 +83,7 @@ const iconByName: Record<IconName, ComponentType> = {
   hosts: GlobalOutlined,
   logout: LogoutOutlined,
   apidocs: ApiOutlined,
+  admins: TeamOutlined,
   outbound: ExportOutlined,
   routing: SwapOutlined,
 };
@@ -229,6 +231,7 @@ export default function AppSidebar() {
       { key: '/outbound', icon: 'outbound', title: t('menu.outbounds') },
       { key: '/routing', icon: 'routing', title: t('menu.routing') },
       { key: '/settings', icon: 'setting', title: t('menu.settings') },
+      { key: '/admins', icon: 'admins', title: 'ادمین‌ها' },
       { key: '/xray', icon: 'tool', title: t('menu.xray') },
       { key: '/api-docs', icon: 'apidocs', title: t('menu.apiDocs') },
       { key: LOGOUT_KEY, icon: 'logout', title: t('logout') },
@@ -372,7 +375,7 @@ export default function AppSidebar() {
       >
         <div className="sider-brand">
           <div className="brand-block">
-            <span className="brand-text">{railCollapsed ? '3X' : '3X-UI'}</span>
+            <span className="brand-text">{railCollapsed ? 'KS' : 'KSMRX'}</span>
           </div>
           {!railCollapsed && (
             <div className="brand-actions">
@@ -460,7 +463,7 @@ export default function AppSidebar() {
       >
         <div className="drawer-header">
           <div className="brand-block">
-            <span className="drawer-brand">3X-UI</span>
+            <span className="drawer-brand">KSMRX</span>
           </div>
           <div className="drawer-header-actions">
             <DocsButton ariaLabel={t('menu.docs') || 'Documentation'} />

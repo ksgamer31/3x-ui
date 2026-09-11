@@ -33,50 +33,66 @@ const initialUltra = readBool(STORAGE_ULTRA, false);
 applyDom(initialDark, initialUltra);
 
 const DARK_TOKENS = {
-  colorBgBase: '#1a1b1f',
-  colorBgLayout: '#1a1b1f',
-  colorBgContainer: '#23252b',
-  colorBgElevated: '#2d2f37',
+  colorBgBase: '#0a0e1a',
+  colorBgLayout: '#0a0e1a',
+  colorBgContainer: '#111827',
+  colorBgElevated: '#1a2236',
+  colorPrimary: '#8b5cf6',
+  colorPrimaryHover: '#a78bfa',
+  colorPrimaryActive: '#7c3aed',
+  colorLink: '#06ffa5',
+  colorSuccess: '#06ffa5',
+  colorInfo: '#8b5cf6',
 };
 const ULTRA_DARK_TOKENS = {
-  colorBgBase: '#000',
-  colorBgLayout: '#000',
-  colorBgContainer: '#101013',
-  colorBgElevated: '#1a1a1e',
+  colorBgBase: '#05070f',
+  colorBgLayout: '#05070f',
+  colorBgContainer: '#0c1220',
+  colorBgElevated: '#141e33',
+  colorPrimary: '#8b5cf6',
+  colorPrimaryHover: '#a78bfa',
+  colorPrimaryActive: '#7c3aed',
+  colorLink: '#06ffa5',
+  colorSuccess: '#06ffa5',
+  colorInfo: '#8b5cf6',
 };
 const DARK_LAYOUT_TOKENS = {
-  bodyBg: '#1a1b1f',
-  headerBg: '#15161a',
+  bodyBg: '#0a0e1a',
+  headerBg: '#0a0e1a',
   headerColor: '#ffffff',
-  footerBg: '#1a1b1f',
-  siderBg: '#15161a',
-  triggerBg: '#23252b',
-  triggerColor: '#ffffff',
+  footerBg: '#0a0e1a',
+  siderBg: '#0a0e1a',
+  triggerBg: '#1a2236',
+  triggerColor: '#a78bfa',
 };
 const ULTRA_DARK_LAYOUT_TOKENS = {
-  bodyBg: '#000',
-  headerBg: '#050507',
+  bodyBg: '#05070f',
+  headerBg: '#05070f',
   headerColor: '#ffffff',
-  footerBg: '#000',
-  siderBg: '#050507',
-  triggerBg: '#1a1a1e',
-  triggerColor: '#ffffff',
+  footerBg: '#05070f',
+  siderBg: '#05070f',
+  triggerBg: '#141e33',
+  triggerColor: '#a78bfa',
 };
 const DARK_MENU_TOKENS = {
-  darkItemBg: '#15161a',
-  darkSubMenuItemBg: '#1a1b1f',
-  darkPopupBg: '#23252b',
+  darkItemBg: '#0a0e1a',
+  darkSubMenuItemBg: '#111827',
+  darkPopupBg: '#1a2236',
+  darkItemSelectedBg: 'rgba(139, 92, 246, 0.15)',
+  darkItemSelectedColor: '#a78bfa',
 };
 const ULTRA_DARK_MENU_TOKENS = {
-  darkItemBg: '#050507',
-  darkSubMenuItemBg: '#000',
-  darkPopupBg: '#101013',
+  darkItemBg: '#05070f',
+  darkSubMenuItemBg: '#0c1220',
+  darkPopupBg: '#141e33',
+  darkItemSelectedBg: 'rgba(139, 92, 246, 0.2)',
+  darkItemSelectedColor: '#c4b5fd',
 };
 const DARK_CARD_TOKENS = {
-  colorBorderSecondary: 'rgba(255, 255, 255, 0.06)',
+  colorBorderSecondary: 'rgba(139, 92, 246, 0.12)',
 };
 const ULTRA_DARK_CARD_TOKENS = {
-  colorBorderSecondary: 'rgba(255, 255, 255, 0.04)',
+  colorBorderSecondary: 'rgba(139, 92, 246, 0.08)',
 };
 const STATISTIC_TOKENS = {
   contentFontSize: 17,
@@ -91,9 +107,9 @@ const LIGHT_CONTRAST_TOKENS = {
   colorSuccessText: '#237804',
 };
 const LIGHT_BUTTON_TOKENS = {
-  colorPrimary: '#0958d9',
-  colorPrimaryHover: '#2468e5',
-  colorPrimaryActive: '#073ea8',
+  colorPrimary: '#7c3aed',
+  colorPrimaryHover: '#8b5cf6',
+  colorPrimaryActive: '#6d28d9',
 };
 
 // hashed:false drops the `:where(.css-<hash>)` wrapper antd puts around every
