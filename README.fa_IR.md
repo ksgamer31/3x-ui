@@ -26,7 +26,7 @@
 </p>
 
 <p align="center">
-  <code>bash &lt;(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.1-ksmrx</code>
+  <code>bash &lt;(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.2-ksmrx</code>
 </p>
 
 ---
@@ -114,10 +114,10 @@
 ### نصب با یک دستور (پیشنهادی)
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.1-ksmrx
+bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.2-ksmrx
 ```
 
-وقتی `v1.0.1-ksmrx` به عنوان latest ثبت شد، بدون ورژن هم کار می‌کند:
+وقتی `v1.0.2-ksmrx` به عنوان latest ثبت شد، بدون ورژن هم کار می‌کند:
 
 ```bash
 bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh)
@@ -126,7 +126,7 @@ bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.s
 ### ورژن خاص / dev
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.1-ksmrx
+bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.2-ksmrx
 bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) dev-latest
 ```
 
@@ -144,7 +144,7 @@ x-ui uninstall    # حذف
 ### نصب غیرتعاملی (cloud-init)
 
 ```bash
-XUI_NONINTERACTIVE=1 bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.1-ksmrx
+XUI_NONINTERACTIVE=1 bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.2-ksmrx
 cat /etc/x-ui/install-result.env
 ```
 

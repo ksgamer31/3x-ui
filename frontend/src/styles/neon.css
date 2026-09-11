@@ -81,3 +81,15 @@ body.dark .online-dot {
   50% { box-shadow: 0 0 24px rgba(139,92,246,0.5); }
 }
 .neon-pulse { animation: neon-pulse 2s ease-in-out infinite; }
+
+/* Admins hero neon */
+.admins-page .ant-card { border-radius: 16px; }
+.admins-page .ant-table { background: transparent; }
+body.dark .admins-page .ant-table-wrapper { background: transparent; }
+body.dark .admins-page .ant-card .ant-table-thead > tr > th {
+  background: rgba(139,92,246,0.08) !important;
+  border-bottom: 1px solid rgba(139,92,246,0.14) !important;
+  color: #c4b5fd !important;
+  font-weight: 700;
+}
+
