@@ -231,7 +231,7 @@ export default function AppSidebar() {
       { key: '/outbound', icon: 'outbound', title: t('menu.outbounds') },
       { key: '/routing', icon: 'routing', title: t('menu.routing') },
       { key: '/settings', icon: 'setting', title: t('menu.settings') },
-      { key: '/admins', icon: 'admins', title: 'ادمین‌ها' },
+      { key: '/admins', icon: 'admins', title: 'Admin' },
       { key: '/xray', icon: 'tool', title: t('menu.xray') },
       { key: '/api-docs', icon: 'apidocs', title: t('menu.apiDocs') },
       { key: LOGOUT_KEY, icon: 'logout', title: t('logout') },
