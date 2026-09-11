@@ -3,53 +3,84 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./media/3x-ui-dark.png">
-    <img alt="3x-ui" src="./media/3x-ui-light.png">
+    <img alt="KSMRX" src="./media/3x-ui-light.png" width="380">
   </picture>
 </p>
 
+<h1 align="center">KSMRX — پنل نیونی Xray</h1>
+
 <p align="center">
-  <a href="https://github.com/ksgamer31/3x-ui/releases"><img src="https://img.shields.io/github/v/release/mhsanaei/3x-ui" alt="Release"></a>
-  <a href="https://github.com/ksgamer31/3x-ui/actions"><img src="https://img.shields.io/github/actions/workflow/status/mhsanaei/3x-ui/release.yml.svg" alt="Build"></a>
-  <a href="#"><img src="https://img.shields.io/github/go-mod/go-version/mhsanaei/3x-ui.svg" alt="GO Version"></a>
-  <a href="https://github.com/ksgamer31/3x-ui/releases/latest"><img src="https://img.shields.io/github/downloads/mhsanaei/3x-ui/total.svg" alt="Downloads"></a>
-  <a href="https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="https://img.shields.io/badge/license-GPL%20V3-blue.svg?longCache=true" alt="License"></a>
-  <a href="https://pkg.go.dev/github.com/mhsanaei/3x-ui/v3"><img src="https://pkg.go.dev/badge/github.com/mhsanaei/3x-ui/v3.svg" alt="Go Reference"></a>
-  <a href="https://docs.sanaei.dev"><img src="https://img.shields.io/badge/docs-docs.sanaei.dev-22d3ee" alt="Documentation"></a>
+  <b>زیبا · سریع · چندادمین</b> — بهترین فورک فارسی 3X-UI با تم دارک نیونی و مدیریت ادمین چندسطحی<br>
+  <sub>بر پایهٔ <a href="https://github.com/MHSanaei/3x-ui">MHSanaei/3x-ui</a> · Xray-core 26.x · Go + Vue 3 · SQLite / PostgreSQL</sub>
 </p>
 
-**KSMRX** نسخه‌ی KSMRX بر پایه‌ی 3X-UI — یک پنل کنترل وب پیشرفته و متن‌باز برای مدیریت سرورهای [Xray-core](https://github.com/XTLS/Xray-core) است. این پنل یک رابط کاربری تمیز و چندزبانه برای استقرار، پیکربندی و نظارت بر طیف گسترده‌ای از پروتکل‌های پراکسی و VPN ارائه می‌دهد — از یک VPS تکی تا استقرارهای چندنودی.
+<p align="center">
+  <a href="https://github.com/ksgamer31/3x-ui/releases"><img src="https://img.shields.io/github/v/release/ksgamer31/3x-ui?label=KSMRX&color=8b5cf6" alt="Release"></a>
+  <a href="https://github.com/ksgamer31/3x-ui/actions"><img src="https://img.shields.io/github/actions/workflow/status/ksgamer31/3x-ui/release.yml?label=build&color=06ffa5" alt="Build"></a>
+  <a href="https://github.com/ksgamer31/3x-ui/releases/latest"><img src="https://img.shields.io/github/downloads/ksgamer31/3x-ui/total?color=22d3ee" alt="Downloads"></a>
+  <a href="https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="https://img.shields.io/badge/license-GPL%20V3-blue.svg" alt="License"></a>
+  <img src="https://img.shields.io/badge/theme-neon%20dark-0a0e1a?labelColor=8b5cf6" alt="Theme">
+  <img src="https://img.shields.io/badge/RBAC-چندادمین-06ffa5" alt="RBAC">
+</p>
 
-‏3X-UI که به‌عنوان یک فورک بهبودیافته از پروژه‌ی اصلی X-UI ساخته شده است، پشتیبانی گسترده‌تر از پروتکل‌ها، پایداری بهتر، حسابداری ترافیک به‌ازای هر کلاینت و بسیاری از ویژگی‌های رفاهی را اضافه می‌کند.
+<p align="center">
+  <code>bash &lt;(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.0-ksmrx</code>
+</p>
+
+---
+
+## ✨ چرا KSMRX؟
+
+| قابلیت | توضیح |
+|---|---|
+| 🎨 **تم دارک نیونی** | پس‌زمینهٔ تیره `#0a0e1a` + گرادینت بنفش `#8b5cf6` → فیروزه‌ای `#06ffa5`، کارت‌های شیشه‌ای با هالهٔ نئونی |
+| 👥 **چندادمین با سطح دسترسی** | هرکس یوزر/پسورد جدا · ۵ نقش: `viewer` / `creator` / `editor` / `admin` / `owner` + محدودسازی اینباند |
+| 🛡️ **همهٔ پروتکل‌ها** | VLESS · VMess · Trojan · Shadowsocks · WireGuard · AmneziaWG · Hysteria2 · MTProto · HTTP · SOCKS · TUN |
+| 🚀 **ترنسپورت مدرن** | Reality / XTLS / TLS / WS / gRPC / XHTTP / mKCP — چند پروتکل روی یک پورت با fallback |
+| 📊 **مدیریت کلاینت** | حجم، انقضا، محدودیت IP & HWID، آنلاین لحظه‌ای، لینک/QR/سابسکریپشن یک‌کلیک |
+| 🌐 **سابسکریپشن هوشمند** | raw / JSON / Clash — انتخاب خودکار از User-Agent + قالب سفارشی |
+| 🧩 **چندنود** | کلون اینباند روی نودهای دیگر از یک پنل |
+| 🤖 **تلگرام + API** | ربات تلگرام + REST API با توکن‌های محدود و تاریخ‌انقضا |
+
+### 👥 سطوح دسترسی
+
+| نقش | دیدن | ساخت کلاینت | ویرایش کلاینت | ساخت اینباند | تنظیمات |
+|---|:---:|:---:|:---:|:---:|:---:|
+| `viewer` | ✅ | — | — | — | — |
+| `creator` | ✅ | ✅ | — | — | — |
+| `editor` | ✅ | ✅ | ✅ | ✅ | — |
+| `admin` | ✅ | ✅ | ✅ | ✅ | ✅ |
+| `owner` | ✅ | ✅ | ✅ | ✅ | ✅ (+ مدیریت owner) |
+
+> مدیریت از **`/panel/admins`** — ساخت، تغییر نقش، فعال/غیرفعال، ریست پسورد. `inboundIds = []` یعنی همه، مثلا `[1,3]` فقط آن اینباندها.
+
+**KSMRX** نسخهٔ بهبودیافته و فارسی‌دوستِ 3X-UI — پنل متن‌باز مدیریت [Xray-core](https://github.com/XTLS/Xray-core) است. پروژهٔ اصلی از [MHSanaei](https://github.com/MHSanaei/3x-ui).
 
 > [!IMPORTANT]
-> این پروژه فقط برای استفاده‌ی شخصی در نظر گرفته شده است. لطفاً از آن برای اهداف غیرقانونی یا در محیط تولید (production) استفاده نکنید.
+> فقط برای استفادهٔ شخصی. برای کار غیرقانونی یا محیط پروداکشن بدون امن‌سازی استفاده نکنید.
+
+## ✨ نسخهٔ KSMRX — چه چیزی جدید است
+
+- **تم دارک نیونی** — هالهٔ بنفش-فیروزه‌ای، کارت‌های شیشه‌ای، برند گرادینت — دارک‌مود حالا خوشگله.
+- **چندادمین با سطوح دسترسی** — نقش‌ها: `viewer` فقط دیدن، `creator` فقط ساخت کلاینت، `editor` ساخت+ویرایش بدون تنظیمات، `admin`/`owner` کامل.
+- **پنل مدیریت ادمین‌ها** — مسیر `/panel/admins` برای ساخت/حذف/تغییر نقش، فعال/غیرفعال، ریست پسورد.
+- **فورک: `ksgamer31/3x-ui`** — نصب آسان و سازگار.
 
 ## ویژگی‌ها
 
 - **اینباندهای چندپروتکلی** — VLESS، VMess، Trojan، Shadowsocks، WireGuard، AmneziaWG، Hysteria2، MTProto، HTTP، SOCKS (Mixed)، Dokodemo-door / Tunnel و TUN.
 - **ترنسپورت‌ها و امنیت مدرن** — TCP (Raw)، mKCP، WebSocket، gRPC، HTTPUpgrade و XHTTP، ایمن‌شده با TLS، XTLS و REALITY.
-- **‏AmneziaWG داخلی** — نسخه‌ی مقاوم در برابر DPI از WireGuard مستقیماً درون پنل و روی یک پشته‌ی شبکه‌ی فضای کاربر اجرا می‌شود؛ بدون ماژول کرنل، DKMS یا بسته‌های اضافی.
-- **پراکسی‌های MTProto** — سکرت‌های FakeTLS، ad-tag و سهمیه‌ها به‌ازای هر کلاینت، که به‌صورت زنده و بدون قطع اتصال‌های موجود اعمال می‌شوند.
-- **فال‌بک (Fallback)** — ارائه‌ی چند پروتکل روی یک پورت واحد (مثلاً VLESS و Trojan روی پورت 443) با استفاده از قابلیت fallback در Xray.
-- **مدیریت به‌ازای هر کلاینت** — سهمیه‌ی ترافیک، تاریخ انقضا، محدودیت IP با امکان استثنا کردن آدرس‌های مورد اعتماد، محدودیت دستگاه (HWID)، چرخه‌های تمدید زمان‌بندی‌شده، وضعیت آنلاینِ زنده و لینک‌های اشتراک‌گذاری، کدهای QR و سابسکریپشن‌ها با یک کلیک.
-- **آمار ترافیک** — به‌ازای هر اینباند، هر کلاینت و هر اوتباند، همراه با کنترل بازنشانی (reset).
-- **پشتیبانی از چند نود** — مدیریت و مقیاس‌دهی روی چندین سرور از یک پنل واحد، از جمله کلون‌کردن اینباندها روی نودهای دیگر.
-- **اوتباند و مسیریابی** — WARP، NordVPN، PIA، قوانین مسیریابی سفارشی، متعادل‌کننده‌های بار (load balancer) با فال‌بک بین متعادل‌کننده‌ها و زنجیره‌کردن پراکسی اوتباند. دسته‌بندی‌های geosite و geoip همراه‌شده مستقیماً از ویرایشگر قوانین قابل مرور هستند.
-- **سرور سابسکریپشن داخلی** — خروجی raw، JSON و Clash که بر پایه‌ی User-Agent کلاینت به‌صورت خودکار انتخاب می‌شود، به‌همراه [قالب‌های صفحه‌ی سفارشی](docs/custom-subscription-templates.md).
-- **ربات تلگرام** برای نظارت و مدیریت از راه دور.
-- **‏RESTful API** با توکن‌های محدودشده (scoped) و دارای انقضای اختیاری، به‌همراه مرجع API درون‌پنل.
-- **پنل قابل نصب (PWA)** — 3X-UI را به دسکتاپ یا صفحه‌ی اصلی گوشی خود سنجاق کنید.
-- **ذخیره‌سازی منعطف** — SQLite (پیش‌فرض) یا PostgreSQL.
-- **‏۱۳ زبان رابط کاربری** با تم‌های تیره و روشن.
-- **یکپارچگی با Fail2ban** برای اعمال محدودیت IP به‌ازای هر کلاینت.
+- **AmneziaWG داخلی** — مقاوم در برابر DPI روی پشتهٔ userspace — بدون ماژول کرنل.
+- **پراکسی‌های MTProto** — سکرت FakeTLS و سهمیه به‌ازای هر کلاینت، زنده بدون قطع اتصال.
+- **فال‌بک** — چند پروتکل روی یک پورت با fallback.
+- **مدیریت کلاینت** — سهمیه، انقضا، محدودیت IP/HWID، تمدید زمان‌بندی، آنلاین زنده، لینک/QR/سابسکریپشن.
+- **آمار ترافیک** — هر اینباند/کلاینت/اوتباند با reset.
+- **چندنود** — مدیریت چند سرور از یک پنل، کلون اینباند.
+- **اوتباند و مسیریابی** — WARP، NordVPN، PIA، routing سفارشی، load balancer، زنجیرهٔ پراکسی. geosite/geoip قابل مرور در ادیتور.
+- **سرور سابسکریپشن داخلی** — raw / JSON / Clash + [قالب سفارشی](docs/custom-subscription-templates.md).
+- **ربات تلگرام** · **RESTful API** · **PWA** · **SQLite / PostgreSQL** · **۱۳ زبان** · **Fail2ban**.
 
-## ✨ نسخه‌ی KSMRX — چه چیزی جدید است
-
-- **تم دارک نیونی** — هاله‌ی بنفش-فیروزه‌ای، کارت‌های شیشه‌ای، برند گرادینت — دارک مود حالا خوشگله.
-- **چندادمین با سطوح دسترسی** — نقش‌ها: `viewer` فقط دیدن، `creator` فقط ساخت کلاینت، `editor` ساخت+ویرایش بدون تنظیمات، `admin`/`owner` کامل. محدود کردن اینباند هر ادمین با `inboundIds`.
-- **پنل مدیریت ادمین‌ها** — مسیر `/panel/admins` برای ساخت/حذف/تغییر نقش، فعال/غیرفعال، ریست پسورد.
-
-## اسکرین‌شات‌ها
+## 📸 اسکرین‌شات
 
 <details>
 <summary>برای باز شدن کلیک کنید</summary>
@@ -76,147 +107,110 @@
 
 </details>
 
-## شروع سریع
+## 🚀 شروع سریع
+
+### نصب با یک دستور (پیشنهادی)
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.0-ksmrx
 ```
 
-برای نصب یک نسخه‌ی مشخص، تگ آن را در انتها اضافه کنید (مثلاً `v3.7.0`):
+وقتی `v1.0.0-ksmrx` به عنوان latest ثبت شد، بدون ورژن هم کار می‌کند:
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh) v3.7.0
+bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh)
 ```
 
-برای نصب نسخه‌ی غلتانِ **dev** (آخرین پیش‌انتشار به‌ازای هر کامیت از شاخه‌ی `main`، نه یک انتشار پایدار)، مقدار `dev-latest` را پاس دهید:
+### ورژن خاص / dev
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh) dev-latest
+bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.0-ksmrx
+bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) dev-latest
 ```
 
-در حین نصب، یک نام کاربری، رمز عبور و مسیر دسترسی تصادفی تولید می‌شود. پس از نصب، دستور `x-ui` را اجرا کنید تا منوی مدیریت باز شود؛ در آنجا می‌توانید سرویس را شروع/متوقف کنید، اطلاعات ورود خود را ببینید یا بازنشانی کنید، گواهی‌های SSL را مدیریت کنید و کارهای دیگری انجام دهید.
+حین نصب یوزر/پسورد/مسیر تصادفی می‌سازد. بعدش:
 
-هر فایل انتشار به‌همراه یک جمع کنترلی `.sha256` در کنارش منتشر می‌شود. هم `install.sh` و هم به‌روزرسان، آرشیو را در برابر آن جمع کنترلی بررسی می‌کنند و در صورت عدم تطابق متوقف می‌شوند.
+```bash
+x-ui              # منوی مدیریت
+x-ui settings     # نمایش تنظیمات
+x-ui update       # آپدیت به آخرین KSMRX
+x-ui uninstall    # حذف
+```
 
-برای مستندات کامل — نصب، پیکربندی، بهره‌برداری و مرجع کامل API — به **[docs.sanaei.dev](https://docs.sanaei.dev/fa)** مراجعه کنید.
+نتیجه در `/etc/x-ui/install-result.env` ذخیره می‌شود.
 
-### نصب بدون نظارت
+### نصب غیرتعاملی (cloud-init)
 
-نصب‌کننده به‌صورت **غیرتعاملی** نیز برای cloud-init اجرا می‌شود.
-‏`XUI_NONINTERACTIVE=1` را تنظیم کنید (یا بدون TTY از طریق pipe اجرا کنید) تا نصب به‌صورت سرتاسری و بدون
-هیچ پرسشی انجام شود، اطلاعات ورود تصادفی تولید کرده و آن‌ها را در
-`/etc/x-ui/install-result.env` می‌نویسد. برای موارد زیر به [`deploy/`](deploy/) مراجعه کنید:
+```bash
+XUI_NONINTERACTIVE=1 bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.0-ksmrx
+cat /etc/x-ui/install-result.env
+```
 
-- [user-data مربوط به Cloud-init](deploy/cloud-init/) — نصب بدون نظارت روی هر ابری (Hetzner/AWS/DO/Vultr/GCP/Azure/Oracle)
-- [یادداشت‌های Hetzner Cloud](deploy/marketplace/hetzner/) — استقرار مبتنی بر cloud-init روی Hetzner
+نمونه‌ها: [`deploy/cloud-init/`](deploy/cloud-init/) و [`deploy/marketplace/hetzner/`](deploy/marketplace/hetzner/)
+
+هر ریلیز با `.sha256` منتشر می‌شود — `install.sh` آن را چک می‌کند.
+
+مستندات کامل: **[docs.sanaei.dev/fa](https://docs.sanaei.dev/fa)**.
 
 ## پلتفرم‌های پشتیبانی‌شده
 
-**سیستم‌عامل‌ها:** Ubuntu، Debian، Armbian، Fedora، CentOS، RHEL، AlmaLinux، Rocky Linux، Oracle Linux، Amazon Linux، Virtuozzo، Arch، Manjaro، Parch، openSUSE (Tumbleweed / Leap)، Alpine و Windows.
+**سیستم‌عامل:** Ubuntu، Debian، Armbian، Fedora، CentOS، RHEL، AlmaLinux، Rocky، Oracle، Amazon، Virtuozzo، Arch، Manjaro، Parch، openSUSE، Alpine و Windows.
 
-**معماری‌ها:** `amd64` · `386` · `arm64` (aarch64) · `armv7` · `armv6` · `armv5` · `s390x`.
+**معماری:** `amd64` · `386` · `arm64` · `armv7` · `armv6` · `armv5` · `s390x`.
 
 ## گزینه‌های پایگاه‌داده
 
-‏3X-UI از دو بک‌اند پشتیبانی می‌کند که در حین نصب انتخاب می‌شوند:
-
-- **SQLite** (پیش‌فرض) — یک فایل واحد در مسیر `/etc/x-ui/x-ui.db`. بدون نیاز به تنظیمات، ایده‌آل برای استقرارهای کوچک و متوسط.
-- **PostgreSQL** — برای تعداد کلاینت بالا یا راه‌اندازی‌های چندنودی توصیه می‌شود. نصب‌کننده می‌تواند PostgreSQL را به‌صورت محلی برایتان نصب کند، یا یک DSN به یک سرور موجود را بپذیرد.
-
-در زمان اجرا، بک‌اند از طریق متغیرهای محیطی انتخاب می‌شود (نصب‌کننده این موارد را برای شما در `/etc/default/x-ui` می‌نویسد):
+- **SQLite** (پیش‌فرض) در `/etc/x-ui/x-ui.db`
+- **PostgreSQL** برای کلاینت زیاد یا چندنود
 
 ```
 XUI_DB_TYPE=postgres
-XUI_DB_DSN=postgres://xui:password@127.0.0.1:5432/xui?sslmode=disable
+XUI_DB_DSN=postgres://xui:***@127.0.0.1:5432/xui?sslmode=disable
 ```
 
-### انتقال یک نصب موجود SQLite به PostgreSQL
-
 ```bash
-x-ui migrate-db --dsn "postgres://xui:password@127.0.0.1:5432/xui?sslmode=disable"
-# سپس XUI_DB_TYPE و XUI_DB_DSN را در /etc/default/x-ui تنظیم کرده و ری‌استارت کنید:
+x-ui migrate-db --dsn "postgres://xui:***@127.0.0.1:5432/xui?sslmode=disable"
+# سپس XUI_DB_* در /etc/default/x-ui و:
 systemctl restart x-ui
 ```
 
-فایل اصلی SQLite دست‌نخورده باقی می‌ماند؛ پس از اطمینان از صحت بک‌اند جدید، آن را به‌صورت دستی حذف کنید.
-
-### Docker
-
-دستور پیش‌فرض `docker compose up -d` همچنان از SQLite استفاده می‌کند. برای اجرا با سرویس PostgreSQL همراه، دو خط متغیر محیطی `XUI_DB_*` را در `docker-compose.yml` از حالت کامنت خارج کنید و با پروفایل زیر اجرا کنید:
-
-```bash
-docker compose --profile postgres up -d
-```
-
-این ایمیج، Fail2ban را (که به‌صورت پیش‌فرض فعال است) برای اعمال **محدودیت‌های IP** به‌ازای هر کلاینت همراه دارد. ‏Fail2ban متخلفان را با `iptables` مسدود می‌کند که به مجوز `NET_ADMIN` نیاز دارد. فایل `docker-compose.yml` این مجوز را از قبل از طریق `cap_add` می‌دهد؛ اگر به‌جای آن کانتینر را با `docker run` اجرا می‌کنید، خودتان مجوزها را اضافه کنید، در غیر این صورت مسدودسازی‌ها فقط ثبت می‌شوند اما هرگز اعمال نمی‌شوند:
-
-```bash
-docker run -d --cap-add=NET_ADMIN --cap-add=NET_RAW ... ghcr.io/mhsanaei/3x-ui
-```
+Docker: `docker compose up -d` و `docker compose --profile postgres up -d` — برای Fail2ban با `docker run` مقدار `--cap-add=NET_ADMIN --cap-add=NET_RAW` بده.
 
 ## متغیرهای محیطی
 
 | متغیر | توضیحات | پیش‌فرض |
 | --- | --- | --- |
-| `XUI_DB_TYPE` | بک‌اند پایگاه‌داده: `sqlite` یا `postgres` | `sqlite` |
-| `XUI_DB_DSN` | رشته‌ی اتصال PostgreSQL (وقتی `XUI_DB_TYPE=postgres`) | — |
-| `XUI_DB_FOLDER` | پوشه‌ی فایل پایگاه‌داده‌ی SQLite | `/etc/x-ui` |
-| `XUI_DB_MAX_OPEN_CONNS` | حداکثر اتصالات باز (استخر PostgreSQL) | — |
-| `XUI_DB_MAX_IDLE_CONNS` | حداکثر اتصالات بی‌کار (استخر PostgreSQL) | — |
-| `XUI_INIT_WEB_BASE_PATH` | مسیر URI اولیه برای پنل وب | `/` |
-| `XUI_ENABLE_FAIL2BAN` | فعال‌سازی اعمال محدودیت IP مبتنی بر Fail2ban | `true` |
-| `XUI_LOG_LEVEL` | سطح گزارش‌گیری (`debug`، `info`، `warning`، `error`) | `info` |
-| `XUI_DEBUG` | فعال‌سازی حالت دیباگ | `false` |
-| `XUI_TUNNEL_HEALTH_MONITOR` | فعال‌سازی پایشگر سلامت تونل (یک URL را پروب می‌کند و پس از خطاهای مکرر، xray را ری‌استارت می‌کند؛ یک ری‌استارت همه‌ی کلاینت‌ها را قطع می‌کند) | `false` |
-| `XUI_TUNNEL_HEALTH_PROXY` | پراکسی‌ای که پروب از طریق آن ارسال می‌شود؛ آن را به یک اینباند محلی xray اشاره دهید تا پروب خودِ تونل را آزمایش کند (مثلاً `socks5://127.0.0.1:1080`). خالی بودن یعنی پروب فقط اتصال به هاست را بررسی می‌کند | — |
-| `XUI_TUNNEL_HEALTH_URL` | URL ای که برای سلامت تونل پروب می‌شود | `https://www.cloudflare.com/cdn-cgi/trace` |
-| `XUI_TUNNEL_HEALTH_INTERVAL` | فاصله‌ی زمانی بین پروب‌ها | `30s` |
-| `XUI_TUNNEL_HEALTH_TIMEOUT` | مهلت زمانی هر پروب | `10s` |
-| `XUI_TUNNEL_HEALTH_FAILURES` | تعداد خطاهای متوالی پیش از آن‌که یک ری‌استارت فعال شود | `3` |
-| `XUI_TUNNEL_HEALTH_COOLDOWN` | حداقل تأخیر بین ری‌استارت‌های متوالی | `5m` |
-| `NODE_TOKEN_ENCRYPTION` | رمزگذاری توکن‌های API نود در حالت سکون: `off`، `migration` یا `required` (بدون پیشوند `XUI_`) | `off` |
-| `XUI_NODE_TOKEN_KEY_FILE` | حلقه‌کلید JSON (با دسترسی `0600`) شامل شناسه‌ی کلید فعال و کلیدهای ۳۲ بایتی base64 | `/etc/x-ui/node_token_key.json` |
-| `XUI_NODE_TOKEN_KEY` | یک کلید ۳۲ بایتی base64 که تنها در صورت بارگذاری‌نشدن فایل کلید استفاده می‌شود | — |
+| `XUI_DB_TYPE` | `sqlite` یا `postgres` | `sqlite` |
+| `XUI_DB_DSN` | کانکشن Postgres | — |
+| `XUI_LOG_LEVEL` | `debug`/`info`/`warning`/`error` | `info` |
+| `XUI_ENABLE_FAIL2BAN` | محدودیت IP با Fail2ban | `true` |
 
-فهرست کامل در [مرجع متغیرهای محیطی](https://docs.sanaei.dev/fa/docs/reference/env-vars) موجود است.
+لیست کامل: [مرجع متغیرها](https://docs.sanaei.dev/fa/docs/reference/env-vars).
 
 ## زبان‌های پشتیبانی‌شده
-
-رابط کاربری پنل به ۱۳ زبان در دسترس است:
 
 English · فارسی · العربية · 中文（简体） · 中文（繁體） · Español · Русский · Українська · Türkçe · Tiếng Việt · 日本語 · Bahasa Indonesia · Português (Brasil)
 
 ## مشارکت
 
-از مشارکت‌ها استقبال می‌شود. لطفاً پیش از باز کردن issue یا pull request، [راهنمای مشارکت](/CONTRIBUTING.md) را مطالعه کنید.
+[CONTRIBUTING.md](/CONTRIBUTING.md) را ببینید.
 
-## تشکر ویژه از
+## تشکر ویژه
 
 - [alireza0](https://github.com/alireza0/)
 
 ## قدردانی
 
-- [Iran v2ray rules](https://github.com/chocolate4u/Iran-v2ray-rules) (مجوز: **GPL-3.0**): _قوانین مسیریابی بهبود یافته v2ray/xray و v2ray/xray-clients با دامنه‌های ایرانی داخلی و تمرکز بر امنیت و مسدود کردن تبلیغات._
-- [Russia v2ray rules](https://github.com/runetfreedom/russia-v2ray-rules-dat) (مجوز: **GPL-3.0**): _این مخزن شامل قوانین مسیریابی V2Ray به‌روزرسانی شده خودکار بر اساس داده‌های دامنه‌ها و آدرس‌های مسدود شده در روسیه است._
+- [Iran v2ray rules](https://github.com/chocolate4u/Iran-v2ray-rules) (GPL-3.0)
+- [Russia v2ray rules](https://github.com/runetfreedom/russia-v2ray-rules-dat) (GPL-3.0)
 
-## ابزارهای جامعه
+## حمایت
 
-ابزارها و یکپارچه‌سازی‌هایی که توسط جامعه پیرامون 3x-ui ساخته شده‌اند.
+**اگر به دردت خورد یه** :star2: **بده!**
 
-- [terraform-provider-3x-ui](https://github.com/batonogov/terraform-provider-threexui) (مجوز: **MIT**): _مدیریت اینباندها، کلاینت‌ها، تنظیمات پنل و پیکربندی Xray به‌صورت کد با Terraform / OpenTofu._
-
-## پشتیبانی از پروژه
-
-**اگر این پروژه برای شما مفید است، می‌توانید به آن یک**:star2: بدهید
-
-<a href="https://www.buymeacoffee.com/MHSanaei" target="_blank">
-<img src="./media/default-yellow.png" alt="Buy Me A Coffee" style="height: 70px !important;width: 277px !important;" >
-</a>
-
-</br>
-<a href="https://nowpayments.io/donation/hsanaei" target="_blank" rel="noreferrer noopener">
-   <img src="./media/donation-button-black.svg" alt="Crypto donation button by NOWPayments">
-</a>
+<p align="center">
+  <a href="https://www.buymeacoffee.com/MHSanaei"><img src="./media/default-yellow.png" alt="Buy Me A Coffee" width="240"></a>
+</p>
 
 ## ستاره‌ها در طول زمان
 

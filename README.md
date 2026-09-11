@@ -3,57 +3,73 @@
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="./media/3x-ui-dark.png">
-    <img alt="3x-ui" src="./media/3x-ui-light.png">
+    <img alt="KSMRX" src="./media/3x-ui-light.png" width="380">
   </picture>
 </p>
 
+<h1 align="center">KSMRX — Neon Xray Panel</h1>
+
 <p align="center">
-  <a href="https://github.com/ksgamer31/3x-ui/releases"><img src="https://img.shields.io/github/v/release/mhsanaei/3x-ui" alt="Release"></a>
-  <a href="https://github.com/ksgamer31/3x-ui/actions"><img src="https://img.shields.io/github/actions/workflow/status/mhsanaei/3x-ui/release.yml.svg" alt="Build"></a>
-  <a href="#"><img src="https://img.shields.io/github/go-mod/go-version/mhsanaei/3x-ui.svg" alt="GO Version"></a>
-  <a href="https://github.com/ksgamer31/3x-ui/releases/latest"><img src="https://img.shields.io/github/downloads/mhsanaei/3x-ui/total.svg" alt="Downloads"></a>
-  <a href="https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="https://img.shields.io/badge/license-GPL%20V3-blue.svg?longCache=true" alt="License"></a>
-  <a href="https://pkg.go.dev/github.com/mhsanaei/3x-ui/v3"><img src="https://pkg.go.dev/badge/github.com/mhsanaei/3x-ui/v3.svg" alt="Go Reference"></a>
-  <a href="https://docs.sanaei.dev"><img src="https://img.shields.io/badge/docs-docs.sanaei.dev-22d3ee" alt="Documentation"></a>
+  <b>زیبا · سریع · چندادمین</b> — بهترین فورک فارسی 3X-UI با تم دارک نیونی و مدیریت ادمین سطح‌بندی‌شده<br>
+  <sub>Fork of <a href="https://github.com/MHSanaei/3x-ui">MHSanaei/3x-ui</a> · Xray-core 26.x · Go + Vue 3 · SQLite / PostgreSQL</sub>
 </p>
 
-**KSMRX** is KSMRX Edition — based on 3X-UI, an advanced, open-source web control panel for managing [Xray-core](https://github.com/XTLS/Xray-core) servers. It provides a clean, multi-language interface for deploying, configuring, and monitoring a wide range of proxy and VPN protocols — from a single VPS to multi-node deployments.
+<p align="center">
+  <a href="https://github.com/ksgamer31/3x-ui/releases"><img src="https://img.shields.io/github/v/release/ksgamer31/3x-ui?label=KSMRX&color=8b5cf6" alt="Release"></a>
+  <a href="https://github.com/ksgamer31/3x-ui/actions"><img src="https://img.shields.io/github/actions/workflow/status/ksgamer31/3x-ui/release.yml?label=build&color=06ffa5" alt="Build"></a>
+  <a href="https://github.com/ksgamer31/3x-ui/releases/latest"><img src="https://img.shields.io/github/downloads/ksgamer31/3x-ui/total?color=22d3ee" alt="Downloads"></a>
+  <a href="https://www.gnu.org/licenses/gpl-3.0.en.html"><img src="https://img.shields.io/badge/license-GPL%20V3-blue.svg" alt="License"></a>
+  <img src="https://img.shields.io/badge/theme-neon%20dark-0a0e1a?labelColor=8b5cf6" alt="Theme">
+  <img src="https://img.shields.io/badge/RBAC-multi--admin-06ffa5" alt="RBAC">
+</p>
 
-Built as an enhanced fork of the original X-UI project, 3X-UI adds broader protocol support, improved stability, per-client traffic accounting, and many quality-of-life features.
+<p align="center">
+  <code>bash &lt;(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.0-ksmrx</code>
+</p>
+
+---
+
+## ✨ Why KSMRX?
+
+| Feature | Details |
+|---|---|
+| 🎨 **Neon Dark Theme** | Deep navy `#0a0e1a` + purple `#8b5cf6` → cyan `#06ffa5` gradient, glass cards with neon glow, gradient sidebar & buttons |
+| 👥 **Multi-Admin RBAC** | Each admin has own username/password · 5 roles: `viewer` / `creator` / `editor` / `admin` / `owner` + per-admin inbound scoping via `inboundIds` |
+| 🛡️ **Every Protocol** | VLESS · VMess · Trojan · Shadowsocks · WireGuard · AmneziaWG · Hysteria2 · MTProto · HTTP · SOCKS · TUN |
+| 🚀 **Modern Transports** | Reality / XTLS / TLS / WS / gRPC / XHTTP / mKCP — fallbacks let multiple protocols share one port |
+| 📊 **Per-Client Power** | Traffic quota, expiry, IP & HWID limits, live online, one-click share link / QR / subscription |
+| 🌐 **Smart Subscription** | raw / JSON / Clash — auto-selected from User-Agent + [custom templates](docs/custom-subscription-templates.md) |
+| 🧩 **Multi-Node** | Clone inbounds to other nodes from a single panel |
+| 🤖 **Telegram + API** | Telegram bot + scoped REST API with expiring tokens |
+
+### 👥 Admin Roles
+
+| Role | View | Create client | Edit client | Create inbound | Settings |
+|---|:---:|:---:|:---:|:---:|:---:|
+| `viewer` | ✅ | — | — | — | — |
+| `creator` | ✅ | ✅ | — | — | — |
+| `editor` | ✅ | ✅ | ✅ | ✅ | — |
+| `admin` | ✅ | ✅ | ✅ | ✅ | ✅ |
+| `owner` | ✅ | ✅ | ✅ | ✅ | ✅ (+ manage owners) |
+
+> Manage at **`/panel/admins`** — create, change role, enable/disable, reset password. `inboundIds = []` means all, e.g. `[1,3]` limits to those inbounds.
+
+**KSMRX** is an enhanced, Persian-friendly fork of 3X-UI — an advanced open-source web panel for [Xray-core](https://github.com/XTLS/Xray-core). Original project by [MHSanaei](https://github.com/MHSanaei/3x-ui).
 
 > [!IMPORTANT]
-> This project is intended for personal use only. Please do not use it for illegal purposes or in a production environment.
-
-## Features
-
-- **Multi-protocol inbounds** — VLESS, VMess, Trojan, Shadowsocks, WireGuard, AmneziaWG, Hysteria2, MTProto, HTTP, SOCKS (Mixed), Dokodemo-door / Tunnel, and TUN.
-- **Modern transports & security** — TCP (Raw), mKCP, WebSocket, gRPC, HTTPUpgrade, and XHTTP, secured with TLS, XTLS, and REALITY.
-- **AmneziaWG built in** — DPI-resistant WireGuard runs inside the panel on a userspace network stack, with no kernel module, DKMS, or extra packages to install.
-- **MTProto proxies** — per-client FakeTLS secrets, ad-tags, and quotas, applied live without dropping existing connections.
-- **Fallbacks** — serve multiple protocols on a single port (e.g. VLESS and Trojan on 443) using Xray's fallback support.
-- **Per-client management** — traffic quotas, expiry dates, IP limits with trusted-address exemptions, HWID device limits, scheduled renewal cycles, live online status, and one-click share links, QR codes, and subscriptions.
-- **Traffic statistics** — per inbound, per client, and per outbound, with reset controls.
-- **Multi-node support** — manage and scale across multiple servers from a single panel, including cloning inbounds onto other nodes.
-- **Outbound & routing** — WARP, NordVPN, PIA, custom routing rules, load balancers with balancer-to-balancer fallback, and outbound proxy chaining. Bundled geosite and geoip categories are browsable straight from the rule editor.
-- **Built-in subscription server** — raw, JSON, and Clash output, auto-selected from the client's User-Agent, plus [custom page templates](docs/custom-subscription-templates.md).
-- **Telegram bot** for remote monitoring and management.
-- **RESTful API** with scoped, optionally expiring tokens and an in-panel API reference.
-- **Installable panel (PWA)** — pin 3X-UI to a desktop or phone home screen.
-- **Flexible storage** — SQLite (default) or PostgreSQL.
-- **13 UI languages** with dark and light themes.
-- **Fail2ban integration** for enforcing per-client IP limits.
+> For personal use only. Do not use for illegal purposes or in production without hardening.
 
 ## ✨ KSMRX Edition — What's New
 
 - **Neon Dark Theme** — purple-cyan glow, glass cards, gradient brand — dark mode is now gorgeous.
-- **Multi-Admin RBAC** — create admins with role: `viewer` (read-only), `creator` (create clients only), `editor` (create+edit, no settings), `admin` / `owner` (full). Per-admin inbound scoping via `inboundIds`.
+- **Multi-Admin RBAC** — `viewer` (read-only), `creator` (create clients only), `editor` (create+edit, no settings), `admin` / `owner` (full). Per-admin inbound scoping.
 - **Admin Panel** — `/panel/admins` to manage users, roles, enable/disable, reset password.
 - **Fork: `ksgamer31/3x-ui`** — easy install stays compatible.
 
 ## Screenshots
 
 <details>
-<summary>Click to expand</summary>
+<summary>Click to expand (dark / light)</summary>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./media/01-overview-dark.png">
@@ -77,119 +93,116 @@ Built as an enhanced fork of the original X-UI project, 3X-UI adds broader proto
 
 </details>
 
-## Quick Start
+> KSMRX neon in dark mode: gradient **KSMRX** logo in sidebar, neon-bordered cards, purple→cyan gradient buttons with glow on hover.
+
+---
+
+## 🚀 Quick Start
+
+### One-line install (recommended)
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh)
+bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.0-ksmrx
 ```
 
-To install a specific version, append its tag (e.g. `v3.7.0`):
+Once `v1.0.0-ksmrx` is `latest` (it is), the short form also works:
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh) v3.7.0
+bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh)
 ```
 
-To install the rolling **dev** build (latest per-commit pre-release from `main`, not a stable release), pass `dev-latest`:
+### Specific version / dev channel
 
 ```bash
-bash <(curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh) dev-latest
+# a specific tag
+bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.0-ksmrx
+
+# rolling dev (latest commit on main, not stable)
+bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) dev-latest
 ```
 
-During installation a random username, password, and access path are generated. After installation, run `x-ui` to open the management menu, where you can start/stop the service, view or reset your login credentials, manage SSL certificates, and more.
+During install a random username / password / path is generated. Afterwards:
 
-Every release asset is published with a `.sha256` sum next to it. Both `install.sh` and the updater verify the archive against that sum and abort on a mismatch.
+```bash
+x-ui              # management menu
+x-ui settings     # show settings
+x-ui update       # update to latest KSMRX
+x-ui uninstall    # remove
+```
 
-For full documentation — installation, configuration, operations, and the complete API reference — visit **[docs.sanaei.dev](https://docs.sanaei.dev)**.
+Result is saved to `/etc/x-ui/install-result.env` (mode 600).
 
-### Unattended install
+### Unattended (cloud-init)
 
-The installer also runs **non-interactively** for cloud-init.
-Set `XUI_NONINTERACTIVE=1` (or pipe with no TTY) and it installs end-to-end with
-zero prompts, generating random credentials and writing them to
-`/etc/x-ui/install-result.env`. See [`deploy/`](deploy/) for:
+```bash
+XUI_NONINTERACTIVE=1 bash <(curl -Ls https://raw.githubusercontent.com/ksgamer31/3x-ui/main/install.sh) v1.0.0-ksmrx
+cat /etc/x-ui/install-result.env
+```
 
-- [Cloud-init user-data](deploy/cloud-init/) — unattended install on any cloud (Hetzner/AWS/DO/Vultr/GCP/Azure/Oracle)
-- [Hetzner Cloud notes](deploy/marketplace/hetzner/) — cloud-init deployment on Hetzner
+See [`deploy/cloud-init/`](deploy/cloud-init/) and [`deploy/marketplace/hetzner/`](deploy/marketplace/hetzner/).
+
+Every release ships with a `.sha256` file — `install.sh` verifies it and aborts on mismatch.
+
+Full docs: **[docs.sanaei.dev](https://docs.sanaei.dev)**.
+
+## Features
+
+- **Multi-protocol inbounds** — VLESS, VMess, Trojan, Shadowsocks, WireGuard, AmneziaWG, Hysteria2, MTProto, HTTP, SOCKS (Mixed), Dokodemo-door / Tunnel, and TUN.
+- **Modern transports & security** — TCP (Raw), mKCP, WebSocket, gRPC, HTTPUpgrade, and XHTTP, secured with TLS, XTLS, and REALITY.
+- **AmneziaWG built in** — DPI-resistant WireGuard on a userspace stack — no kernel module needed.
+- **MTProto proxies** — per-client FakeTLS secrets, ad-tags, quotas, applied live.
+- **Fallbacks** — serve multiple protocols on one port via Xray fallbacks.
+- **Per-client management** — quotas, expiry, IP limits, HWID, renewal cycles, live online, share links / QR / subscriptions.
+- **Traffic statistics** — per inbound / client / outbound with reset.
+- **Multi-node** — manage many servers from one panel, clone inbounds.
+- **Outbound & routing** — WARP, NordVPN, PIA, custom routing, load balancers, proxy chaining. Bundled geosite/geoip browsable in editor.
+- **Built-in subscription server** — raw, JSON, Clash auto-selected by User-Agent + [custom templates](docs/custom-subscription-templates.md).
+- **Telegram bot** · **RESTful API** with scoped tokens · **PWA** · **SQLite / PostgreSQL** · **13 languages** · **Fail2ban**.
 
 ## Supported Platforms
 
-**Operating systems:** Ubuntu, Debian, Armbian, Fedora, CentOS, RHEL, AlmaLinux, Rocky Linux, Oracle Linux, Amazon Linux, Virtuozzo, Arch, Manjaro, Parch, openSUSE (Tumbleweed / Leap), Alpine, and Windows.
+**OS:** Ubuntu, Debian, Armbian, Fedora, CentOS, RHEL, AlmaLinux, Rocky, Oracle, Amazon, Virtuozzo, Arch, Manjaro, Parch, openSUSE, Alpine, Windows.
 
-**Architectures:** `amd64` · `386` · `arm64` (aarch64) · `armv7` · `armv6` · `armv5` · `s390x`.
+**Arch:** `amd64` · `386` · `arm64` · `armv7` · `armv6` · `armv5` · `s390x`.
 
 ## Database Options
 
-3X-UI supports two backends, chosen during the install:
-
-- **SQLite** (default) — a single file at `/etc/x-ui/x-ui.db`. Zero setup, ideal for small and medium deployments.
-- **PostgreSQL** — recommended for high client counts or multi-node setups. The installer can install PostgreSQL locally for you, or accept a DSN to an existing server.
-
-At runtime the backend is selected via environment variables (the installer writes these to `/etc/default/x-ui` for you):
+- **SQLite** (default) at `/etc/x-ui/x-ui.db`.
+- **PostgreSQL** for large / multi-node. Installer can install it or take a DSN:
 
 ```
 XUI_DB_TYPE=postgres
-XUI_DB_DSN=postgres://xui:password@127.0.0.1:5432/xui?sslmode=disable
+XUI_DB_DSN=postgres://xui:***@127.0.0.1:5432/xui?sslmode=disable
 ```
 
-### Migrating an existing SQLite install to PostgreSQL
-
 ```bash
-x-ui migrate-db --dsn "postgres://xui:password@127.0.0.1:5432/xui?sslmode=disable"
-# then set XUI_DB_TYPE and XUI_DB_DSN in /etc/default/x-ui and restart:
+x-ui migrate-db --dsn "postgres://xui:***@127.0.0.1:5432/xui?sslmode=disable"
+# set XUI_DB_* in /etc/default/x-ui then:
 systemctl restart x-ui
 ```
 
-The source SQLite file is left untouched; remove it manually once you have verified the new backend.
+Docker: `docker compose up -d` (SQLite) · `docker compose --profile postgres up -d`.
 
-### Docker
-
-The default `docker compose up -d` keeps using SQLite. To run with the bundled PostgreSQL service, uncomment the two `XUI_DB_*` env lines in `docker-compose.yml` and start with the profile:
-
-```bash
-docker compose --profile postgres up -d
-```
-
-The image bundles Fail2ban (enabled by default) to enforce per-client **IP limits**. Fail2ban bans offenders with `iptables`, which requires the `NET_ADMIN` capability. `docker-compose.yml` already grants it via `cap_add`; if you start the container with `docker run` instead, add the capabilities yourself, otherwise bans are logged but never applied:
-
-```bash
-docker run -d --cap-add=NET_ADMIN --cap-add=NET_RAW ... ghcr.io/mhsanaei/3x-ui
-```
+Fail2ban needs `NET_ADMIN` — `docker-compose.yml` already adds it; with `docker run` add `--cap-add=NET_ADMIN --cap-add=NET_RAW`.
 
 ## Environment Variables
 
 | Variable | Description | Default |
 | --- | --- | --- |
-| `XUI_DB_TYPE` | Database backend: `sqlite` or `postgres` | `sqlite` |
-| `XUI_DB_DSN` | PostgreSQL connection string (when `XUI_DB_TYPE=postgres`) | — |
-| `XUI_DB_FOLDER` | Directory for the SQLite database file | `/etc/x-ui` |
-| `XUI_DB_MAX_OPEN_CONNS` | Maximum open connections (PostgreSQL pool) | — |
-| `XUI_DB_MAX_IDLE_CONNS` | Maximum idle connections (PostgreSQL pool) | — |
-| `XUI_INIT_WEB_BASE_PATH` | The initial URI path for the web panel | `/` |
-| `XUI_ENABLE_FAIL2BAN` | Enable Fail2ban-based IP-limit enforcement | `true` |
-| `XUI_LOG_LEVEL` | Log verbosity (`debug`, `info`, `warning`, `error`) | `info` |
-| `XUI_DEBUG` | Enable debug mode | `false` |
-| `XUI_TUNNEL_HEALTH_MONITOR` | Enable the tunnel health monitor (probes a URL and restarts xray after repeated failures; a restart drops all clients) | `false` |
-| `XUI_TUNNEL_HEALTH_PROXY` | Proxy the probe is sent through; point it at a local xray inbound so the probe tests the tunnel (e.g. `socks5://127.0.0.1:1080`). Empty means the probe only checks host connectivity | — |
-| `XUI_TUNNEL_HEALTH_URL` | URL probed for tunnel health | `https://www.cloudflare.com/cdn-cgi/trace` |
-| `XUI_TUNNEL_HEALTH_INTERVAL` | Interval between probes | `30s` |
-| `XUI_TUNNEL_HEALTH_TIMEOUT` | Per-probe timeout | `10s` |
-| `XUI_TUNNEL_HEALTH_FAILURES` | Consecutive failures before a restart is triggered | `3` |
-| `XUI_TUNNEL_HEALTH_COOLDOWN` | Minimum delay between consecutive restarts | `5m` |
-| `NODE_TOKEN_ENCRYPTION` | Encryption at rest for node API tokens: `off`, `migration`, or `required` (note: no `XUI_` prefix) | `off` |
-| `XUI_NODE_TOKEN_KEY_FILE` | JSON keyring (mode `0600`) holding the active key id and its base64 32-byte keys | `/etc/x-ui/node_token_key.json` |
-| `XUI_NODE_TOKEN_KEY` | A single base64 32-byte key, used only when the key file cannot be loaded | — |
+| `XUI_DB_TYPE` | `sqlite` or `postgres` | `sqlite` |
+| `XUI_DB_DSN` | Postgres DSN | — |
+| `XUI_LOG_LEVEL` | `debug` / `info` / `warning` / `error` | `info` |
+| `XUI_ENABLE_FAIL2BAN` | IP-limit via Fail2ban | `true` |
 
-The complete list is on the [environment variables reference](https://docs.sanaei.dev/docs/reference/env-vars).
+Full list: [environment variables reference](https://docs.sanaei.dev/docs/reference/env-vars).
 
 ## Supported Languages
-
-The panel UI is available in 13 languages:
 
 English · فارسی · العربية · 中文（简体） · 中文（繁體） · Español · Русский · Українська · Türkçe · Tiếng Việt · 日本語 · Bahasa Indonesia · Português (Brasil)
 
 ## Contributing
 
-Contributions are welcome. Please read the [Contributing Guide](/CONTRIBUTING.md) before opening an issue or pull request.
+See [CONTRIBUTING.md](/CONTRIBUTING.md).
 
 ## A Special Thanks to
 
@@ -197,18 +210,12 @@ Contributions are welcome. Please read the [Contributing Guide](/CONTRIBUTING.md
 
 ## Acknowledgment
 
-- [Iran v2ray rules](https://github.com/chocolate4u/Iran-v2ray-rules) (License: **GPL-3.0**): _Enhanced v2ray/xray and v2ray/xray-clients routing rules with built-in Iranian domains and a focus on security and adblocking._
-- [Russia v2ray rules](https://github.com/runetfreedom/russia-v2ray-rules-dat) (License: **GPL-3.0**): _This repository contains automatically updated V2Ray routing rules based on data on blocked domains and addresses in Russia._
-
-## Community Tools
-
-Tools and integrations built by the community around 3x-ui.
-
-- [terraform-provider-3x-ui](https://github.com/batonogov/terraform-provider-threexui) (License: **MIT**): _Manage inbounds, clients, panel settings, and Xray configuration as code with Terraform / OpenTofu._
+- [Iran v2ray rules](https://github.com/chocolate4u/Iran-v2ray-rules) (GPL-3.0)
+- [Russia v2ray rules](https://github.com/runetfreedom/russia-v2ray-rules-dat) (GPL-3.0)
 
 ## Support project
 
-**If this project is helpful to you, you may wish to give it a**:star2:
+**If this project is helpful, please give it a** :star2:
 
 <a href="https://www.buymeacoffee.com/MHSanaei" target="_blank">
 <img src="./media/default-yellow.png" alt="Buy Me A Coffee" style="height: 70px !important;width: 277px !important;" >
