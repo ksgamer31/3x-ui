@@ -166,20 +166,22 @@
   position: fixed;
   top: 12px;
   left: 12px;
-  z-index: 1100;
-  background: rgba(0, 0, 0, 0.55);
+  z-index: 9999;
+  background: linear-gradient(135deg, #7c3aed 0%, #06ffa5 100%);
   color: #fff;
-  border: none;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.14);
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
   cursor: pointer;
   display: none;
   align-items: center;
   justify-content: center;
   font-size: 18px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 6px 20px rgba(139,92,246,0.35), 0 0 0 1px rgba(139,92,246,0.18);
 }
+.drawer-handle:hover { transform: scale(1.06); box-shadow: 0 8px 28px rgba(139,92,246,0.45); }
+.drawer-handle:active { transform: scale(0.97); }
 
 .drawer-header {
   display: flex;
@@ -315,7 +317,7 @@
 
 @media (max-width: 768px) {
   .drawer-handle {
-    display: inline-flex;
+    display: inline-flex !important;
   }
 
   .ant-sidebar > .ant-layout-sider .ant-layout-sider-children {
@@ -369,3 +371,10 @@ body.dark .ant-drawer-body .drawer-menu .ant-menu-item-group-list {
   background-color: color-mix(in srgb, var(--ant-color-primary) 10%, transparent) !important;
   color: var(--ant-color-primary) !important;
 }
+
+/* Keep page content from hiding under floating menu button */
+@media (max-width: 768px) {
+  .admins-page { padding-top: 6px !important; }
+  .page-shell .page-header { padding-top: 8px; }
+}
+
